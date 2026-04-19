@@ -72,7 +72,7 @@ nav.scrolled { background: rgba(250,250,248,0.92); backdrop-filter: blur(20px); 
 .hero-content { max-width: 580px; position: relative; z-index: 2; }
 
 .hero-bigname { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 3; pointer-events: none; display: flex; flex-direction: column; align-items: center; line-height: 0.85; opacity: 0; animation: fadeIn 1s ease 0.1s forwards; }
-.hero-bigname span { font-family: var(--font-heading); font-size: clamp(6rem, 14vw, 13rem); font-weight: 800; color: transparent; -webkit-text-stroke: 1.8px var(--border); letter-spacing: -2px; text-transform: uppercase; user-select: none; }
+.hero-bigname span { font-family: var(--font-heading); font-size: clamp(6rem, 14vw, 13rem); font-weight: 800; color: transparent; -webkit-text-stroke: 1px rgba(180,175,168,0.35); letter-spacing: -2px; text-transform: uppercase; user-select: none; }
 html[dir="rtl"] .hero-bigname span { letter-spacing: 0; }
 
 .hero-profile { display: flex; flex-direction: column; gap: 0; opacity: 0; animation: fadeUp 0.7s ease 0.5s forwards; }
@@ -80,8 +80,17 @@ html[dir="rtl"] .hero-bigname span { letter-spacing: 0; }
 .hero-portrait img { width: 115%; height: 115%; object-fit: cover; display: block; position: absolute; top: -7.5%; left: -7.5%; transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1); will-change: transform; }
 .hero-portrait .photo-placeholder { border-radius: 0; }
 
-.portrait-watermark { position: absolute; bottom: 24px; left: 24px; z-index: 3; font-family: var(--font-heading); font-size: 1.6rem; font-weight: 700; color: rgba(255,255,255,0.85); text-shadow: 0 2px 12px rgba(0,0,0,0.3); letter-spacing: -0.5px; line-height: 1.2; }
-.portrait-watermark small { display: block; font-size: 0.7rem; font-weight: 500; letter-spacing: 2px; text-transform: uppercase; opacity: 0.75; margin-top: 2px; }
+.portrait-watermark { position: absolute; bottom: 20px; left: 20px; z-index: 3; font-family: var(--font-heading); font-size: 1.4rem; font-weight: 700; color: #fff; background: rgba(26,26,46,0.55); backdrop-filter: blur(8px); padding: 10px 16px; border-radius: 12px; letter-spacing: -0.3px; line-height: 1.3; }
+.portrait-watermark small { display: block; font-size: 0.6rem; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; opacity: 0.8; margin-top: 2px; color: rgba(255,255,255,0.75); }
+.hero-float-tags { position: absolute; inset: 0; z-index: 4; pointer-events: none; }
+.hero-float-tag { position: absolute; display: inline-flex; align-items: center; gap: 6px; padding: 7px 14px; border-radius: 100px; font-family: var(--font-body); font-size: 0.72rem; font-weight: 600; letter-spacing: 0.3px; color: #1a1a2e; background: rgba(255,255,255,0.85); backdrop-filter: blur(10px); border: 1px solid rgba(0,0,0,0.06); box-shadow: 0 4px 20px rgba(0,0,0,0.08); animation: floatTag 4s ease-in-out infinite; }
+.hero-float-tag svg { width: 14px; height: 14px; flex-shrink: 0; }
+.hero-float-tag.ft-1 { top: 8%; right: -20px; animation-delay: 0s; }
+.hero-float-tag.ft-2 { top: 30%; left: -28px; animation-delay: 1s; }
+.hero-float-tag.ft-3 { bottom: 28%; right: -24px; animation-delay: 2s; }
+.hero-float-tag.ft-4 { bottom: 10%; left: -20px; animation-delay: 0.5s; }
+.hero-float-tag.ft-5 { top: 55%; right: -18px; animation-delay: 1.5s; }
+@keyframes floatTag { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
 
 .hero-intro-stats { display: flex; gap: 24px; padding-top: 14px; border-top: 1px solid var(--border-light); }
 .hero-stat { text-align: center; position: relative; cursor: pointer; }
@@ -238,8 +247,9 @@ section { padding: var(--section-gap) 60px; }
 /* ===== CASE DETAIL (FULL PAGE — Behance Style) ===== */
 .case-page { display: none; position: fixed; inset: 0; z-index: 300; background: #F5F2EE; overflow-y: auto; animation: fadeIn 0.4s ease; }
 .case-page.active { display: block; }
-.case-page-back { position: fixed; top: 24px; left: 24px; z-index: 310; display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; background: rgba(27,27,31,0.85); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); color: #fff; border-radius: 100px; font-size: 0.82rem; font-weight: 600; cursor: pointer; border: 1px solid rgba(255,255,255,0.1); transition: all 0.3s ease; text-decoration: none; font-family: var(--font-body); }
-.case-page-back:hover { background: rgba(27,27,31,0.95); gap: 12px; }
+.case-page-back { position: fixed; top: 24px; left: 24px; z-index: 310; display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; background: rgba(27,27,31,0.85); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); color: #fff; border-radius: 100px; font-size: 0.82rem; font-weight: 600; cursor: pointer; border: 1px solid rgba(255,255,255,0.1); transition: all 0.3s ease; text-decoration: none; font-family: var(--font-body); animation: backBtnPulse 2.5s ease-in-out infinite; }
+.case-page-back:hover { background: rgba(27,27,31,0.95); gap: 12px; animation: none; }
+@keyframes backBtnPulse { 0%, 100% { box-shadow: 0 0 0 0 rgba(255,255,255,0.25); } 50% { box-shadow: 0 0 0 10px rgba(255,255,255,0); } }
 .case-page-back svg { width: 16px; height: 16px; }
 html[dir="rtl"] .case-page-back { left: auto; right: 24px; }
 
@@ -398,6 +408,10 @@ html[dir="rtl"] .impact-highlight::before { left: auto; right: 0; border-radius:
 .bh-full-image.bh-contain img { object-fit: contain; background: #fff; }
 .case-visual-placeholder.wide { grid-column: 1 / -1; height: 200px; }
 .case-visual-label { position: absolute; bottom: 8px; left: 8px; background: rgba(27,27,31,0.75); backdrop-filter: blur(10px); color: #fff; padding: 4px 12px; border-radius: 100px; font-size: 0.65rem; font-weight: 600; letter-spacing: 0.3px; z-index: 2; }
+.bh-confidential img { filter: blur(10px); transition: filter 0.4s ease; }
+.bh-confidential:hover img { filter: blur(3px); }
+.bh-confidential .confidential-tag { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: rgba(20,20,30,0.85); backdrop-filter: blur(8px); color: #fff; padding: 10px 28px; border-radius: 100px; font-size: 0.85rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; z-index: 3; opacity: 0; transition: opacity 0.3s ease; display: flex; align-items: center; gap: 8px; pointer-events: none; }
+.bh-confidential:hover .confidential-tag { opacity: 1; }
 .case-visual-placeholder { position: relative; }
 html[dir="rtl"] .case-visual-label { left: auto; right: 8px; }
 .case-visual-placeholder img { width: 100%; height: 100%; object-fit: cover; }
@@ -536,7 +550,12 @@ html[dir="rtl"] .case-tags { justify-content: flex-end; }
 html[dir="rtl"] .detail-grid { direction: rtl; }
 html[dir="rtl"] .section-label, html[dir="rtl"] .section-title, html[dir="rtl"] .section-subtitle { text-align: right; }
 html[dir="rtl"] #contact .section-label, html[dir="rtl"] #contact .section-title { text-align: center; }
-html[dir="rtl"] .portrait-watermark { left: auto; right: 24px; text-align: right; }
+html[dir="rtl"] .portrait-watermark { left: auto; right: 20px; text-align: right; }
+html[dir="rtl"] .hero-float-tag.ft-1 { right: auto; left: -20px; }
+html[dir="rtl"] .hero-float-tag.ft-2 { left: auto; right: -28px; }
+html[dir="rtl"] .hero-float-tag.ft-3 { right: auto; left: -24px; }
+html[dir="rtl"] .hero-float-tag.ft-4 { left: auto; right: -20px; }
+html[dir="rtl"] .hero-float-tag.ft-5 { right: auto; left: -18px; }
 html[dir="rtl"] .cv-grid { direction: rtl; }
 html[dir="rtl"] .marquee-track { animation-direction: reverse; }
 
@@ -569,6 +588,7 @@ html[dir="rtl"] .marquee-track { animation-direction: reverse; }
   .hero-profile { max-width: 100%; }
   .hero-portrait { aspect-ratio: 1/1; max-height: 360px; }
   .hero-bigname span { font-size: 4rem; }
+  .hero-float-tags { display: none; }
   .languages-row { flex-direction: column; }
   .cases-grid, .findings-grid { grid-template-columns: 1fr; }
   .stat-row { flex-direction: column; }
@@ -627,7 +647,7 @@ html[lang="ar"] .ar-only.contact-links { display: flex; }
 </nav>
 
 <div class="bottom-nav" id="bottomNav">
-  <a href="#about" class="bnav-item" data-section="about"><span class="bnav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M20 21a8 8 0 1 0-16 0"/></svg></span><span class="bnav-label en-only-inline">About</span><span class="bnav-label ar-only-inline">عني</span></a>
+  <a href="#hero" class="bnav-item" data-section="hero"><span class="bnav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M20 21a8 8 0 1 0-16 0"/></svg></span><span class="bnav-label en-only-inline">About</span><span class="bnav-label ar-only-inline">عني</span></a>
   <a href="#services" class="bnav-item" data-section="services"><span class="bnav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></span><span class="bnav-label en-only-inline">Services</span><span class="bnav-label ar-only-inline">خدماتي</span></a>
   <a href="#work" class="bnav-item" data-section="work"><span class="bnav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></span><span class="bnav-label en-only-inline">My Work</span><span class="bnav-label ar-only-inline">أعمالي</span></a>
   <a href="#cv" class="bnav-item" data-section="cv"><span class="bnav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></span><span class="bnav-label en-only-inline">Digital CV</span><span class="bnav-label ar-only-inline">السيرة</span></a>
@@ -739,11 +759,15 @@ html[lang="ar"] .ar-only.contact-links { display: flex; }
         </div>
       </div>
     </div>
-    <div class="hero-profile">
+    <div class="hero-profile" style="position:relative">
       <div class="hero-portrait">
         <img src="https://lh3.googleusercontent.com/d/1GNcwy4UhlB-Q2ek_uBl_vuo8AWMT1yxY" alt="Emad Nasr" style="width:100%;height:100%;object-fit:cover;display:block;transform:scaleX(-1)">
         <div class="portrait-watermark en-only" style="z-index:5">Emad Nasr<small>UX Research & Insights Lead</small></div>
         <div class="portrait-watermark ar-only" style="z-index:5">عماد نصر<small>قائد أبحاث ورؤى تجربة المستخدم</small></div>
+      </div>
+      <div class="hero-float-tags">
+        <span class="hero-float-tag ft-1"><svg viewBox="0 0 24 24" fill="none" stroke="#E8453C" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg><span class="en-only-inline">UX Research</span><span class="ar-only-inline">أبحاث UX</span></span>
+        <span class="hero-float-tag ft-2"><svg viewBox="0 0 24 24" fill="none" stroke="#7C5CFC" stroke-width="2"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg><span class="en-only-inline">Data Insights</span><span class="ar-only-inline">رؤى البيانات</span></span>
       </div>
     </div>
   </div>
@@ -1282,12 +1306,14 @@ html[lang="ar"] .ar-only.contact-links { display: flex; }
 
     <!-- NPS Trend Charts -->
     <div style="display:flex;gap:16px;flex-wrap:wrap;margin-bottom:48px">
-      <div class="bh-full-image bh-contain" style="flex:1;min-width:280px;position:relative;margin:0;height:320px">
+      <div class="bh-full-image bh-contain bh-confidential" style="flex:1;min-width:280px;position:relative;margin:0;height:320px">
         <img src="https://lh3.googleusercontent.com/d/1NTAK4g71Z1AeHuZPOs27kvJaIGiZc0pd" alt="Consumer NPS Growth H2-2024">
+        <span class="confidential-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>Confidential</span>
         <span class="case-visual-label">Consumer NPS Growth H2-2024</span>
       </div>
-      <div class="bh-full-image bh-contain" style="flex:1;min-width:280px;position:relative;margin:0;height:320px">
+      <div class="bh-full-image bh-contain bh-confidential" style="flex:1;min-width:280px;position:relative;margin:0;height:320px">
         <img src="https://lh3.googleusercontent.com/d/1DiRQQrQiGYulEAIyqJ6-w1bX8bRFxwaV" alt="NPS by Emirate">
+        <span class="confidential-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>Confidential</span>
         <span class="case-visual-label">NPS by Emirate</span>
       </div>
     </div>
@@ -1323,8 +1349,9 @@ html[lang="ar"] .ar-only.contact-links { display: flex; }
         <img src="https://lh3.googleusercontent.com/d/1UUBdKFjgh6RZu8CAae1IG64uro-_7Jjj" alt="Qualtrics Survey Flow">
         <span class="case-visual-label">Qualtrics Survey Flow</span>
       </div>
-      <div class="bh-full-image bh-contain" style="flex:1;min-width:280px;position:relative;margin:0;height:280px">
+      <div class="bh-full-image bh-contain bh-confidential" style="flex:1;min-width:280px;position:relative;margin:0;height:280px">
         <img src="https://lh3.googleusercontent.com/d/1osTc9ygsgT2IavM1SKbjkMw75vKh39iu" alt="NPS Reporting Dashboard">
+        <span class="confidential-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>Confidential</span>
         <span class="case-visual-label">NPS Reporting Dashboard</span>
       </div>
     </div>
@@ -1358,7 +1385,7 @@ html[lang="ar"] .ar-only.contact-links { display: flex; }
 
     <!-- Presenting photo — outcome (flipped) -->
     <div class="bh-full-image" style="position:relative;height:500px">
-      <img src="https://lh3.googleusercontent.com/d/1Goa4bkujfvPndJS4esy2JNdp8BVWgBWp" alt="Emad presenting results to leadership" style="transform:scaleX(-1)">
+      <img src="https://lh3.googleusercontent.com/d/1Goa4bkujfvPndJS4esy2JNdp8BVWgBWp" alt="Emad presenting results to leadership">
       <span class="case-visual-label">Presenting Results to Leadership</span>
     </div>
 
@@ -1641,6 +1668,11 @@ function filterCases(type) {
   document.querySelectorAll('.case-detail').forEach(d => d.classList.remove('active'));
 }
 
+function closeAllDetails() {
+  document.querySelectorAll('.case-page.active').forEach(p => p.classList.remove('active'));
+  document.body.style.overflow = '';
+}
+
 function showDetail(id) {
   const page = document.getElementById('detail-' + id);
   page.classList.add('active');
@@ -1656,8 +1688,9 @@ function hideDetail(id) {
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', function(e) {
     e.preventDefault();
+    closeAllDetails();
     const t = document.querySelector(this.getAttribute('href'));
-    if (t) t.scrollIntoView({ behavior: 'smooth' });
+    if (t) setTimeout(() => t.scrollIntoView({ behavior: 'smooth' }), 50);
   });
 });
 
