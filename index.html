@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Emad Nasr — UX Research & Insights Lead</title>
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='18' fill='%231a1a2e'/><text x='50' y='66' font-family='Arial,sans-serif' font-size='46' font-weight='700' fill='%23E8453C' text-anchor='middle'>EN</text></svg>" type="image/svg+xml">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='48' fill='%23F5F2EE' stroke='%23E8453C' stroke-width='3'/><text x='50' y='66' font-family='Arial,sans-serif' font-size='42' font-weight='700' fill='%23E8453C' text-anchor='middle'>EN</text></svg>" type="image/svg+xml">
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Outfit:wght@300;400;500;600;700;800&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=Noto+Kufi+Arabic:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -510,6 +510,15 @@ html[dir="rtl"] .fc-tooltip { left: auto; right: calc(100% + 10px); }
 .cv-photo-placeholder svg { width: 28px; height: 28px; opacity: 0.25; }
 .cv-photo-placeholder span { font-size: 0.62rem; opacity: 0.5; }
 .cv-photo-placeholder img { width: 100%; height: 100%; object-fit: cover; object-position: center 20%; }
+.cv-photo-placeholder img[alt="MaxAB"] { object-position: left center; }
+.cv-hidden-extra { display: none; }
+.cv-column.cv-show-all .cv-hidden-extra { display: flex; animation: cvFadeIn 0.4s ease both; }
+@keyframes cvFadeIn { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: translateY(0); } }
+.cv-more-btn { display: flex; width: fit-content; align-items: center; gap: 8px; background: var(--accent-subtle); border: 1px solid var(--accent-border); color: var(--accent); padding: 9px 18px; border-radius: 100px; font-family: var(--font-body); font-size: 0.82rem; font-weight: 600; cursor: pointer; margin: 20px auto 4px; transition: all 0.25s ease; }
+.cv-more-btn:hover { background: var(--accent); color: #fff; transform: translateY(-1px); box-shadow: 0 6px 18px rgba(232,69,60,0.25); }
+.cv-more-btn .cv-more-icon { display: inline-flex; transition: transform 0.3s ease; }
+.cv-column.cv-show-all .cv-more-btn .cv-more-icon { transform: rotate(180deg); }
+html[dir="rtl"] .cv-more-btn { font-family: var(--font-body-ar); }
 
 /* ===== TALK MODAL ===== */
 .modal-overlay { position: fixed; inset: 0; z-index: 500; background: rgba(0,0,0,0.5); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); display: flex; align-items: center; justify-content: center; opacity: 0; visibility: hidden; transition: all 0.3s ease; }
@@ -999,7 +1008,7 @@ html[lang="ar"] .ar-only.contact-links { display: flex; }
         <h3 class="cv-col-title"><svg viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" width="20" height="20"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg><span class="en-only-inline">Experience</span><span class="ar-only-inline">الخبرة</span></h3>
         <div class="cv-item"><div class="cv-date">2024 — Present</div><div class="cv-role"><div class="cv-role-text"><h4 class="en-only">UX Research & Design Lead</h4><h4 class="ar-only">قائد أبحاث وتصميم تجربة المستخدم</h4><p class="cv-company">Coraly AI — Dubai, UAE</p><p class="cv-desc en-only">Leading UX research and design for an AI-powered real estate CRM.</p><p class="cv-desc ar-only">قيادة أبحاث وتصميم تجربة المستخدم لنظام CRM عقاري مدعوم بالذكاء الاصطناعي.</p></div><div class="cv-photo-placeholder"><img src="https://lh3.googleusercontent.com/d/1bHGdvkT2L6rahGw2BpeIfcXqlFTeOESM" alt="Coraly AI"></div></div></div>
         <div class="cv-item"><div class="cv-date">2022 — 2024</div><div class="cv-role"><div class="cv-role-text"><h4 class="en-only">Product Strategist & UX Researcher</h4><h4 class="ar-only">استراتيجي منتجات وباحث تجربة المستخدم</h4><p class="cv-company">Property Finder — Dubai, UAE</p><p class="cv-desc en-only">Led research for the largest property portal in MENA. Built first NPS framework.</p><p class="cv-desc ar-only">قيادة البحث لأكبر بوابة عقارية في المنطقة. بناء أول إطار عمل لبرنامج NPS.</p></div><div class="cv-photo-placeholder"><img src="https://lh3.googleusercontent.com/d/1HC9lcTBkltw72Og2Pd2EdFT6zXW7W2It" alt="Property Finder"></div></div></div>
-        <div class="cv-item"><div class="cv-date">2019 — 2021</div><div class="cv-role"><div class="cv-role-text"><h4 class="en-only">Senior Research Analyst</h4><h4 class="ar-only">محلل أبحاث أول</h4><p class="cv-company">Huawei Technologies — Dubai, UAE</p><p class="cv-desc en-only">Market research and competitive analysis across MENA telecom and electronics.</p><p class="cv-desc ar-only">أبحاث السوق والتحليل التنافسي عبر قطاع الاتصالات.</p></div><div class="cv-photo-placeholder"><img src="https://lh3.googleusercontent.com/d/1QYqrOZkGiEnVP0gi7utfWl-O069Jt5V-" alt="Huawei"></div></div></div>
+        <div class="cv-item cv-hidden-extra"><div class="cv-date">2021 — 2022</div><div class="cv-role"><div class="cv-role-text"><h4 class="en-only">Consumer Insights Researcher</h4><h4 class="ar-only">باحث رؤى المستهلك</h4><p class="cv-company">MaxAB — Cairo, Egypt</p><p class="cv-desc en-only">Consumer and merchant research for a B2B e-commerce platform serving traditional retailers across Egypt.</p><p class="cv-desc ar-only">أبحاث المستهلك والتاجر لمنصة تجارة إلكترونية B2B تخدم تجار التجزئة التقليديين في مصر.</p></div><div class="cv-photo-placeholder"><img src="https://lh3.googleusercontent.com/d/1FHHvkQQSKpoo5meZHnTwbGAdb734HNnL" alt="MaxAB"></div></div></div><div class="cv-item"><div class="cv-date">2019 — 2021</div><div class="cv-role"><div class="cv-role-text"><h4 class="en-only">Senior Research Analyst</h4><h4 class="ar-only">محلل أبحاث أول</h4><p class="cv-company">Huawei Technologies — Dubai, UAE</p><p class="cv-desc en-only">Market research and competitive analysis across MENA telecom and electronics.</p><p class="cv-desc ar-only">أبحاث السوق والتحليل التنافسي عبر قطاع الاتصالات.</p></div><div class="cv-photo-placeholder"><img src="https://lh3.googleusercontent.com/d/1rXEa825Gy7R-4hQ1xGGWpUcZiIML_1KF" alt="Huawei"></div></div></div><div class="cv-item cv-hidden-extra"><div class="cv-date">2017 — 2019</div><div class="cv-role"><div class="cv-role-text"><h4 class="en-only">Research Analyst</h4><h4 class="ar-only">محلل أبحاث</h4><p class="cv-company">Point of View — Cairo, Egypt</p><p class="cv-desc en-only">Quantitative and qualitative market research across MENA — survey design, fieldwork coordination, and data analysis for FMCG, telecom, and financial services clients.</p><p class="cv-desc ar-only">أبحاث سوق كمية ونوعية عبر منطقة الشرق الأوسط وشمال أفريقيا — تصميم الاستبيانات وتنسيق العمل الميداني وتحليل البيانات لعملاء في قطاعات السلع الاستهلاكية والاتصالات والخدمات المالية.</p></div><div class="cv-photo-placeholder"><img src="https://lh3.googleusercontent.com/d/150fKVhUWXSxmImMUzCk-Cdbypuw6e4L9" alt="Point of View"></div></div></div><button type="button" class="cv-more-btn" onclick="toggleCvMore(this)" aria-expanded="false"><span class="cv-more-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span><span class="en-only-inline cv-more-label-en">+2 more</span><span class="ar-only-inline cv-more-label-ar">+2 إضافي</span></button>
       </div>
       <div class="cv-column">
         <h3 class="cv-col-title"><svg viewBox="0 0 24 24" fill="none" stroke="var(--secondary)" stroke-width="2" stroke-linecap="round" width="20" height="20"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 2 3 3 6 3s6-1 6-3v-5"/></svg><span class="en-only-inline">Education</span><span class="ar-only-inline">التعليم</span></h3>
@@ -1782,14 +1791,46 @@ if (portrait) {
   });
 }
 
-// Floating contacts — open on hover or click, close on leave or outside click
+// Floating contacts — open on hover/click, close after 3s delay so users can click subicons
 const fcEl = document.getElementById('floatingContacts');
 if (fcEl) {
-  fcEl.addEventListener('mouseenter', () => fcEl.classList.add('open'));
-  fcEl.addEventListener('mouseleave', () => fcEl.classList.remove('open'));
+  let fcCloseTimer = null;
+  const clearFcTimer = () => {
+    if (fcCloseTimer) { clearTimeout(fcCloseTimer); fcCloseTimer = null; }
+  };
+  const openFc = () => {
+    clearFcTimer();
+    fcEl.classList.add('open');
+  };
+  const closeFcWithDelay = () => {
+    clearFcTimer();
+    fcCloseTimer = setTimeout(() => {
+      fcEl.classList.remove('open');
+      fcCloseTimer = null;
+    }, 3000);
+  };
+  fcEl.addEventListener('mouseenter', openFc);
+  fcEl.addEventListener('mouseleave', closeFcWithDelay);
+  // Keep open if focus moves inside (e.g. tabbing to a subicon)
+  fcEl.addEventListener('focusin', openFc);
   document.addEventListener('click', function(e) {
-    if (!fcEl.contains(e.target)) fcEl.classList.remove('open');
+    if (!fcEl.contains(e.target)) {
+      clearFcTimer();
+      fcEl.classList.remove('open');
+    }
   });
+}
+
+// CV experience — +2 more toggle
+function toggleCvMore(btn) {
+  const col = btn.closest('.cv-column');
+  if (!col) return;
+  const opened = col.classList.toggle('cv-show-all');
+  btn.setAttribute('aria-expanded', opened ? 'true' : 'false');
+  const en = btn.querySelector('.cv-more-label-en');
+  const ar = btn.querySelector('.cv-more-label-ar');
+  if (en) en.textContent = opened ? 'Show less' : '+2 more';
+  if (ar) ar.textContent = opened ? 'عرض أقل' : '+2 إضافي';
 }
 
 // Talk modal
